@@ -5,6 +5,7 @@ import { UserButton, SignInButton, SignedIn, SignedOut } from '@clerk/nextjs';
 import Spline from '@splinetool/react-spline';
 import { useState } from 'react';
 import AboutUs from '../AboutUs/page.js';
+import ConnectWallet from '../ConnectWallet/page.js';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,8 +28,8 @@ function Navbar() {
               About Us
             </Link>
             <SignedIn>
-              <Link href="/create-quiz" className="text-gray-800 dark:text-[var(--foreground)] hover:text-purple-800">
-                Create Quiz
+              <Link href="/ConnectWallet" className="text-gray-800 dark:text-[var(--foreground)] hover:text-purple-800">
+                Connect Wallet
               </Link>
               <UserButton afterSignOutUrl="/" />
             </SignedIn>
