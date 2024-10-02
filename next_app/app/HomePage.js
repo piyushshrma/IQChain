@@ -3,7 +3,7 @@
 import Spline from '@splinetool/react-spline';
 import { useState } from 'react';
 import Link from 'next/link';  // Import Link from next/link
-import AboutUs from '../AboutUs/page.js';
+import AboutUs from './AboutUs/page';
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,7 +21,6 @@ function Navbar() {
             <Link href="/" className="text-gray-800 dark:text-[var(--foreground)] hover:text-purple-800">
               Home
             </Link>
-           
             <Link href="/AboutUs" className="text-gray-800 dark:text-[var(--foreground)] hover:text-purple-800">
               About Us
             </Link>
@@ -68,19 +67,24 @@ function HomePage() {
             "Where Knowledge Meets the Blockchain"
           </span>
           <div className="space-y-4">
-          <Link href="/Tn-quiz">
-              <button className="px-6 py-3 bg-[var(--primary)] dark:bg-[var(--accent)] text-white font-semibold rounded-lg shadow-lg hover:bg-purple-800 transition duration-300">
+            <button className="px-6 py-3 bg-[var(--primary)] dark:bg-[var(--accent)] text-white font-semibold rounded-lg shadow-lg hover:bg-purple-800 transition duration-300">
               Get Started
-              </button>
-          </Link>
+            </button>
           </div>
         </div>
 
-        {/* Right Side: Spline Scene (Adjusted 20px down) */}
-        <div className="w-full md:w-auto h-full flex justify-end items-center mt-[20px]">
-          <div className="w-full h-full max-w-[700px]">
-            <Spline scene="https://prod.spline.design/64buftY0pHtSHrcH/scene.splinecode" />
-          </div>
+{/* Right Side: Spline Scene (Adjusted and Cropped to remove lower part) */}
+<div className="w-full md:w-auto h-full flex justify-end items-center mt-[20px]">
+  <div className="w-full h-[calc(100% - 20px)] max-w-[700px] overflow-hidden" style={{ position: 'relative' }}>
+    {/* Adjust the height and crop the lower part */}
+    <div className="relative" style={{ height: 'calc(80% + 20px)', top: '-50px' }}>
+      <Spline scene="https://prod.spline.design/64buftY0pHtSHrcH/scene.splinecode" />
+    </div>
+  </div>
+
+
+
+
         </div>
       </div>
     </div>

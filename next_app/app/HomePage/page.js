@@ -1,9 +1,11 @@
-"use client";
+"use client"
 
+import Link from 'next/link';
+import { UserButton, SignInButton, SignedIn, SignedOut } from '@clerk/nextjs';
 import Spline from '@splinetool/react-spline';
 import { useState } from 'react';
-import Link from 'next/link';  // Import Link from next/link
-import AboutUs from './AboutUs/page';
+import AboutUs from '../AboutUs/page.js';
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,6 +26,19 @@ function Navbar() {
             <Link href="/AboutUs" className="text-gray-800 dark:text-[var(--foreground)] hover:text-purple-800">
               About Us
             </Link>
+            <SignedIn>
+              <Link href="/create-quiz" className="text-gray-800 dark:text-[var(--foreground)] hover:text-purple-800">
+                Create Quiz
+              </Link>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="bg-blue-500 text-white px-4 py-2 rounded">
+                  Sign In
+                </button>
+              </SignInButton>
+            </SignedOut>
           </div>
 
           {/* Mobile menu button */}
@@ -47,6 +62,19 @@ function Navbar() {
           <Link href="/AboutUs" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-[var(--foreground)] hover:text-purple-800">
             About Us
           </Link>
+          <SignedIn>
+            <Link href="/create-quiz" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 dark:text-[var(--foreground)] hover:text-purple-800">
+              Create Quiz
+            </Link>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+          <SignedOut>
+            <SignInButton mode="modal">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded">
+                Sign In
+              </button>
+            </SignInButton>
+          </SignedOut>
         </div>
       </div>
     </nav>
@@ -67,13 +95,15 @@ function HomePage() {
             "Where Knowledge Meets the Blockchain"
           </span>
           <div className="space-y-4">
-            <button className="px-6 py-3 bg-[var(--primary)] dark:bg-[var(--accent)] text-white font-semibold rounded-lg shadow-lg hover:bg-purple-800 transition duration-300">
-              Get Started
-            </button>
+            <Link href="/Tn-quiz">
+              <button className="px-6 py-3 bg-[var(--primary)] dark:bg-[var(--accent)] text-white font-semibold rounded-lg shadow-lg hover:bg-purple-800 transition duration-300">
+                Get Started
+              </button>
+            </Link>
           </div>
         </div>
 
-        {/* Right Side: Spline Scene (Adjusted 20px down) */}
+        {/* Right Side: Spline Scene */}
         <div className="w-full md:w-auto h-full flex justify-end items-center mt-[20px]">
           <div className="w-full h-full max-w-[700px]">
             <Spline scene="https://prod.spline.design/64buftY0pHtSHrcH/scene.splinecode" />
