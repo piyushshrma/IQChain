@@ -4,7 +4,8 @@ import { useRouter } from "next/navigation";
 
 const serverUrl = "https://diamtestnet.diamcircle.io";
 const sourceSecretKey = "SCSYFJ2NITMOQB23DEL3PVEDNIEUJYOC6GYUA6KOAHQL7TACNJE6ASRH";
-const destinationId = "GBJF34HTOVA6HBZCW3L3RY3RERIT3MW5BQ67QFVTIQSABM6D45TEU3OV";
+// const destinationId = "GBJF34HTOVA6HBZCW3L3RY3RERIT3MW5BQ67QFVTIQSABM6D45TEU3OV";
+const destinationId = "GBY3LNUNYA3DWBQWNURR66FS35HBM34D3AV73PGNAGJ4FS7U4D442HIN";
 
 const PaymentPage = () => {
     const router = useRouter();
